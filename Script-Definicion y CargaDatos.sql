@@ -83,7 +83,7 @@ create table amoperez.vehiculos(
 	id_color varchar(3) not null,      ---FK
 	matricula varchar(10) not null,
 	fecha_compra date not null,
-	fecha_venta date default '09/09/9999',
+	fecha_venta date default '4000-01-01',
 	comentarios varchar (500) null
 ); 
 
@@ -107,7 +107,7 @@ create table amoperez.revisiones(
 	kilometros_rev integer not null,
 	importe_revision numeric (8,2),
 	id_divisa varchar(3) not null,     ---FK
-	proxima_revision date default '09/09/9999',
+	proxima_revision date default '4000-01-01',
 	comentarios varchar (500) null
 );
 
@@ -129,7 +129,7 @@ create table amoperez.kilometros(
 	id_vehiculo varchar(6) not null,   ---PK y FK
 	fecha_lectura date not null,       ---PK
 	kilometros_tot integer not null,
-	proxima_lectura date default '09/09/9999'
+	proxima_lectura date default '4000-01-01'
 );
 
 alter table amoperez.kilometros add constraint kilometros_PK primary key (id_vehiculo, fecha_lectura); --- declaro las dos PK
@@ -146,7 +146,7 @@ create table amoperez.polizas(
 	fecha_alta date not null,            ---PK
 	id_aseguradora varchar(3) not null,  ---FK
 	numero_poliza varchar(50) not null,
-	fecha_baja date default '9999-09-09',
+	fecha_baja date default '4000-01-01',
 	comentarios varchar (500) null
 );
 
@@ -214,37 +214,84 @@ insert into amoperez.modelos (id_modelo,id_marca,nombre_modelo) values ('007','0
 
 
 /********* cargando la tabla "vehiculos" */
-insert into amoperez.vehiculos (id_vehiculo,id_modelo,id_color,matricula,fecha_compra,fecha_venta,comentarios) values ('001','001','001','BRLSN4I49','18/01/2019','15/11/2021','');
-insert into amoperez.vehiculos (id_vehiculo,id_modelo,id_color,matricula,fecha_compra,fecha_venta,comentarios) values ('002','002','002','BGEH3717BT','20/12/2020','09/09/9999','');
-insert into amoperez.vehiculos (id_vehiculo,id_modelo,id_color,matricula,fecha_compra,fecha_venta,comentarios) values ('003','002','002','78759','20/12/2020','09/09/9999','');
-insert into amoperez.vehiculos (id_vehiculo,id_modelo,id_color,matricula,fecha_compra,fecha_venta,comentarios) values ('004','003','002','4692LJI','20/12/2020','09/09/9999','');
-insert into amoperez.vehiculos (id_vehiculo,id_modelo,id_color,matricula,fecha_compra,fecha_venta,comentarios) values ('005','004','003','7198GLY','20/12/2020','09/09/9999','');
-insert into amoperez.vehiculos (id_vehiculo,id_modelo,id_color,matricula,fecha_compra,fecha_venta,comentarios) values ('006','004','003','9156IKG','20/12/2020','09/09/9999','');
-insert into amoperez.vehiculos (id_vehiculo,id_modelo,id_color,matricula,fecha_compra,fecha_venta,comentarios) values ('007','005','004','8554DRN','01/08/2022','09/09/9999','');
-insert into amoperez.vehiculos (id_vehiculo,id_modelo,id_color,matricula,fecha_compra,fecha_venta,comentarios) values ('008','005','004','2778DEO','01/08/2022','09/09/9999','que recuerdos');
-insert into amoperez.vehiculos (id_vehiculo,id_modelo,id_color,matricula,fecha_compra,fecha_venta,comentarios) values ('009','006','001','7091IUR','01/08/2022','09/09/9999','');
-insert into amoperez.vehiculos (id_vehiculo,id_modelo,id_color,matricula,fecha_compra,fecha_venta,comentarios) values ('010','007','001','7805ENU','01/08/2022','09/09/9999','este es el mejor');
+insert into amoperez.vehiculos (id_vehiculo,id_modelo,id_color,matricula,fecha_compra,fecha_venta,comentarios) values ('001','001','001','BRLSN4I49','2019-01-18','2021-11-15','');
+insert into amoperez.vehiculos (id_vehiculo,id_modelo,id_color,matricula,fecha_compra,fecha_venta,comentarios) values ('002','002','002','BGEH3717BT','2020-12-20','4000-01-01','');
+insert into amoperez.vehiculos (id_vehiculo,id_modelo,id_color,matricula,fecha_compra,fecha_venta,comentarios) values ('003','002','002','78759','2020-12-20','4000-01-01','');
+insert into amoperez.vehiculos (id_vehiculo,id_modelo,id_color,matricula,fecha_compra,fecha_venta,comentarios) values ('004','003','002','4692LJI','2020-12-20','4000-01-01','');
+insert into amoperez.vehiculos (id_vehiculo,id_modelo,id_color,matricula,fecha_compra,fecha_venta,comentarios) values ('005','004','003','7198GLY','2020-12-20','4000-01-01','');
+insert into amoperez.vehiculos (id_vehiculo,id_modelo,id_color,matricula,fecha_compra,fecha_venta,comentarios) values ('006','004','003','9156IKG','2020-12-20','4000-01-01','');
+insert into amoperez.vehiculos (id_vehiculo,id_modelo,id_color,matricula,fecha_compra,fecha_venta,comentarios) values ('007','005','004','8554DRN','2022-08-01','4000-01-01','');
+insert into amoperez.vehiculos (id_vehiculo,id_modelo,id_color,matricula,fecha_compra,fecha_venta,comentarios) values ('008','005','004','2778DEO','2022-08-01','4000-01-01','que recuerdos');
+insert into amoperez.vehiculos (id_vehiculo,id_modelo,id_color,matricula,fecha_compra,fecha_venta,comentarios) values ('009','006','001','7091IUR','2022-08-01','4000-01-01','');
+insert into amoperez.vehiculos (id_vehiculo,id_modelo,id_color,matricula,fecha_compra,fecha_venta,comentarios) values ('010','007','001','7805ENU','2022-08-01','4000-01-01','este es el mejor');
 
 
 /********* cargando la tabla "revisiones" */
-insert into amoperez.revisiones (id_vehiculo,fecha_revision,kilometros_rev,importe_revision,id_divisa,proxima_revision,comentarios) values ('001','13/01/2020',7102,426,'002','2020-07-10','');
-insert into amoperez.revisiones (id_vehiculo,fecha_revision,kilometros_rev,importe_revision,id_divisa,proxima_revision,comentarios) values ('001','11/07/2020',10687,818,'002','2021-11-09','');
-insert into amoperez.revisiones (id_vehiculo,fecha_revision,kilometros_rev,importe_revision,id_divisa,proxima_revision,comentarios) values ('001','10/11/2021',14675,688,'002','09/09/9999','');
-insert into amoperez.revisiones (id_vehiculo,fecha_revision,kilometros_rev,importe_revision,id_divisa,proxima_revision,comentarios) values ('002','18/06/2021',26958,533,'002','2021-12-14','');
-insert into amoperez.revisiones (id_vehiculo,fecha_revision,kilometros_rev,importe_revision,id_divisa,proxima_revision,comentarios) values ('002','15/12/2021',52975,503,'002','2022-06-10','');
-insert into amoperez.revisiones (id_vehiculo,fecha_revision,kilometros_rev,importe_revision,id_divisa,proxima_revision,comentarios) values ('002','13/06/2022',79688,620,'001','09/09/9999','');
-insert into amoperez.revisiones (id_vehiculo,fecha_revision,kilometros_rev,importe_revision,id_divisa,proxima_revision,comentarios) values ('003','18/06/2021',16160,823,'002','2021-12-17','');
-insert into amoperez.revisiones (id_vehiculo,fecha_revision,kilometros_rev,importe_revision,id_divisa,proxima_revision,comentarios) values ('003','15/12/2021',32651,787,'002','2022-06-15','');
-insert into amoperez.revisiones (id_vehiculo,fecha_revision,kilometros_rev,importe_revision,id_divisa,proxima_revision,comentarios) values ('003','13/06/2022',48482,767,'001','09/09/9999','');
-insert into amoperez.revisiones (id_vehiculo,fecha_revision,kilometros_rev,importe_revision,id_divisa,proxima_revision,comentarios) values ('004','18/06/2021',7722,965,'002','2021-12-09','');
-insert into amoperez.revisiones (id_vehiculo,fecha_revision,kilometros_rev,importe_revision,id_divisa,proxima_revision,comentarios) values ('004','15/12/2021',15741,652,'002','2022-06-10','');
-insert into amoperez.revisiones (id_vehiculo,fecha_revision,kilometros_rev,importe_revision,id_divisa,proxima_revision,comentarios) values ('004','13/06/2022',23216,953,'001','09/09/9999','');
-insert into amoperez.revisiones (id_vehiculo,fecha_revision,kilometros_rev,importe_revision,id_divisa,proxima_revision,comentarios) values ('005','18/06/2021',14881,637,'002','2021-12-03','');
-insert into amoperez.revisiones (id_vehiculo,fecha_revision,kilometros_rev,importe_revision,id_divisa,proxima_revision,comentarios) values ('005','15/12/2021',28901,724,'002','2022-06-10','');
-insert into amoperez.revisiones (id_vehiculo,fecha_revision,kilometros_rev,importe_revision,id_divisa,proxima_revision,comentarios) values ('005','13/06/2022',42414,569,'001','09/09/9999','');
-insert into amoperez.revisiones (id_vehiculo,fecha_revision,kilometros_rev,importe_revision,id_divisa,proxima_revision,comentarios) values ('006','18/06/2021',22303,899,'002','2021-12-25','');
-insert into amoperez.revisiones (id_vehiculo,fecha_revision,kilometros_rev,importe_revision,id_divisa,proxima_revision,comentarios) values ('006','15/12/2021',47001,953,'002','2022-06-31','');
-insert into amoperez.revisiones (id_vehiculo,fecha_revision,kilometros_rev,importe_revision,id_divisa,proxima_revision,comentarios) values ('006','13/06/2022',57185,818,'001','09/09/9999','');
-insert into amoperez.revisiones (id_vehiculo,fecha_revision,kilometros_rev,importe_revision,id_divisa,proxima_revision,comentarios) values ('001','17/07/2019',4225,426,'002','2019-12-30','este es el primero');
+insert into amoperez.revisiones (id_vehiculo,fecha_revision,kilometros_rev,importe_revision,id_divisa,proxima_revision,comentarios) values ('001','2019-07-17',4225,426,'002','2020-01-12','');
+insert into amoperez.revisiones (id_vehiculo,fecha_revision,kilometros_rev,importe_revision,id_divisa,proxima_revision,comentarios) values ('001','2020-01-13',7102,426,'002','2020-07-10','');
+insert into amoperez.revisiones (id_vehiculo,fecha_revision,kilometros_rev,importe_revision,id_divisa,proxima_revision,comentarios) values ('001','2020-07-11',10687,818,'002','2021-11-09','');
+insert into amoperez.revisiones (id_vehiculo,fecha_revision,kilometros_rev,importe_revision,id_divisa,proxima_revision,comentarios) values ('001','2021-11-10',14675,688,'002','4000-01-01','');
+insert into amoperez.revisiones (id_vehiculo,fecha_revision,kilometros_rev,importe_revision,id_divisa,proxima_revision,comentarios) values ('002','2021-06-18',26958,533,'002','2021-12-14','');
+insert into amoperez.revisiones (id_vehiculo,fecha_revision,kilometros_rev,importe_revision,id_divisa,proxima_revision,comentarios) values ('002','2021-12-15',52975,503,'002','2022-06-10','');
+insert into amoperez.revisiones (id_vehiculo,fecha_revision,kilometros_rev,importe_revision,id_divisa,proxima_revision,comentarios) values ('002','2022-06-13',79688,620,'001','4000-01-01','');
+insert into amoperez.revisiones (id_vehiculo,fecha_revision,kilometros_rev,importe_revision,id_divisa,proxima_revision,comentarios) values ('003','2021-06-18',16160,823,'002','2021-12-17','');
+insert into amoperez.revisiones (id_vehiculo,fecha_revision,kilometros_rev,importe_revision,id_divisa,proxima_revision,comentarios) values ('003','2021-12-15',32651,787,'002','2022-06-15','');
+insert into amoperez.revisiones (id_vehiculo,fecha_revision,kilometros_rev,importe_revision,id_divisa,proxima_revision,comentarios) values ('003','2022-06-13',48482,767,'001','4000-01-01','');
+insert into amoperez.revisiones (id_vehiculo,fecha_revision,kilometros_rev,importe_revision,id_divisa,proxima_revision,comentarios) values ('004','2021-06-18',7722,965,'002','2021-12-09','');
+insert into amoperez.revisiones (id_vehiculo,fecha_revision,kilometros_rev,importe_revision,id_divisa,proxima_revision,comentarios) values ('004','2021-12-15',15741,652,'002','2022-06-10','');
+insert into amoperez.revisiones (id_vehiculo,fecha_revision,kilometros_rev,importe_revision,id_divisa,proxima_revision,comentarios) values ('004','2022-06-13',23216,953,'001','4000-01-01','suena raro');
+insert into amoperez.revisiones (id_vehiculo,fecha_revision,kilometros_rev,importe_revision,id_divisa,proxima_revision,comentarios) values ('005','2021-06-18',14881,637,'002','2021-12-03','');
+insert into amoperez.revisiones (id_vehiculo,fecha_revision,kilometros_rev,importe_revision,id_divisa,proxima_revision,comentarios) values ('005','2021-12-15',28901,724,'002','2022-06-10','');
+insert into amoperez.revisiones (id_vehiculo,fecha_revision,kilometros_rev,importe_revision,id_divisa,proxima_revision,comentarios) values ('005','2022-06-13',42414,569,'001','4000-01-01','');
+insert into amoperez.revisiones (id_vehiculo,fecha_revision,kilometros_rev,importe_revision,id_divisa,proxima_revision,comentarios) values ('006','2021-06-18',22303,899,'002','2021-12-25','');
+insert into amoperez.revisiones (id_vehiculo,fecha_revision,kilometros_rev,importe_revision,id_divisa,proxima_revision,comentarios) values ('006','2021-12-15',47001,953,'002','2022-06-28','vigilar si se calienta');
+insert into amoperez.revisiones (id_vehiculo,fecha_revision,kilometros_rev,importe_revision,id_divisa,proxima_revision,comentarios) values ('006','2022-06-13',57185,818,'001','4000-01-01','');
 
-select * from amoperez.revisiones;
+
+/********* cargando la tabla "kilometros" */
+insert into amoperez.kilometros (id_vehiculo,fecha_lectura,kilometros_tot,proxima_lectura) values ('001','2019-07-17',4225,'2020-01-10');
+insert into amoperez.kilometros (id_vehiculo,fecha_lectura,kilometros_tot,proxima_lectura) values ('001','2020-01-13',7102,'2020-07-09');
+insert into amoperez.kilometros (id_vehiculo,fecha_lectura,kilometros_tot,proxima_lectura) values ('001','2020-07-11',10687,'2021-11-09');
+insert into amoperez.kilometros (id_vehiculo,fecha_lectura,kilometros_tot,proxima_lectura) values ('001','2021-11-10',14675,'2021-11-10');
+insert into amoperez.kilometros (id_vehiculo,fecha_lectura,kilometros_tot,proxima_lectura) values ('001','2021-11-15',14675,'4000-01-01');
+insert into amoperez.kilometros (id_vehiculo,fecha_lectura,kilometros_tot,proxima_lectura) values ('002','2021-06-18',26958,'2021-12-15');
+insert into amoperez.kilometros (id_vehiculo,fecha_lectura,kilometros_tot,proxima_lectura) values ('002','2021-12-15',52975,'2022-06-13');
+insert into amoperez.kilometros (id_vehiculo,fecha_lectura,kilometros_tot,proxima_lectura) values ('002','2022-06-13',79688,'2022-09-01');
+insert into amoperez.kilometros (id_vehiculo,fecha_lectura,kilometros_tot,proxima_lectura) values ('002','2022-09-01',80073,'4000-01-01');
+insert into amoperez.kilometros (id_vehiculo,fecha_lectura,kilometros_tot,proxima_lectura) values ('003','2021-06-18',16160,'2021-12-15');
+insert into amoperez.kilometros (id_vehiculo,fecha_lectura,kilometros_tot,proxima_lectura) values ('003','2021-12-15',32651,'2022-06-13');
+insert into amoperez.kilometros (id_vehiculo,fecha_lectura,kilometros_tot,proxima_lectura) values ('003','2022-06-13',48482,'2022-09-01');
+insert into amoperez.kilometros (id_vehiculo,fecha_lectura,kilometros_tot,proxima_lectura) values ('003','2022-09-01',48646,'4000-01-01');
+insert into amoperez.kilometros (id_vehiculo,fecha_lectura,kilometros_tot,proxima_lectura) values ('004','2021-06-18',7722,'2021-12-15');
+insert into amoperez.kilometros (id_vehiculo,fecha_lectura,kilometros_tot,proxima_lectura) values ('004','2021-12-15',15741,'2022-06-13');
+insert into amoperez.kilometros (id_vehiculo,fecha_lectura,kilometros_tot,proxima_lectura) values ('004','2022-06-13',23216,'2022-09-01');
+insert into amoperez.kilometros (id_vehiculo,fecha_lectura,kilometros_tot,proxima_lectura) values ('004','2022-09-01',23400,'4000-01-01');
+insert into amoperez.kilometros (id_vehiculo,fecha_lectura,kilometros_tot,proxima_lectura) values ('005','2021-06-18',14881,'2021-12-15');
+insert into amoperez.kilometros (id_vehiculo,fecha_lectura,kilometros_tot,proxima_lectura) values ('005','2021-12-15',28901,'2022-06-13');
+insert into amoperez.kilometros (id_vehiculo,fecha_lectura,kilometros_tot,proxima_lectura) values ('005','2022-06-13',42414,'2022-09-01');
+insert into amoperez.kilometros (id_vehiculo,fecha_lectura,kilometros_tot,proxima_lectura) values ('005','2022-09-01',42414,'4000-01-01');
+insert into amoperez.kilometros (id_vehiculo,fecha_lectura,kilometros_tot,proxima_lectura) values ('006','2021-06-18',22303,'2021-12-15');
+insert into amoperez.kilometros (id_vehiculo,fecha_lectura,kilometros_tot,proxima_lectura) values ('006','2021-12-15',47001,'2022-06-13');
+insert into amoperez.kilometros (id_vehiculo,fecha_lectura,kilometros_tot,proxima_lectura) values ('006','2022-06-13',57185,'2022-09-01');
+insert into amoperez.kilometros (id_vehiculo,fecha_lectura,kilometros_tot,proxima_lectura) values ('006','2022-09-01',57185,'4000-01-01');
+insert into amoperez.kilometros (id_vehiculo,fecha_lectura,kilometros_tot,proxima_lectura) values ('007','2022-09-01',10629,'4000-01-01');
+insert into amoperez.kilometros (id_vehiculo,fecha_lectura,kilometros_tot,proxima_lectura) values ('008','2022-09-01',68859,'4000-01-01');
+insert into amoperez.kilometros (id_vehiculo,fecha_lectura,kilometros_tot,proxima_lectura) values ('009','2022-09-01',69523,'4000-01-01');
+insert into amoperez.kilometros (id_vehiculo,fecha_lectura,kilometros_tot,proxima_lectura) values ('010','2022-09-01',57815,'4000-01-01');
+
+
+/********* cargando la tabla "polizas" */
+insert into amoperez.polizas (id_vehiculo,fecha_alta,id_aseguradora,numero_poliza,fecha_baja,comentarios) values ('001','2019-01-18','002','CLUAKRN41663KAD','2020-01-18','');
+insert into amoperez.polizas (id_vehiculo,fecha_alta,id_aseguradora,numero_poliza,fecha_baja,comentarios) values ('001','2020-01-18','002','SSJHRTX68437RHQ','2021-01-18','');
+insert into amoperez.polizas (id_vehiculo,fecha_alta,id_aseguradora,numero_poliza,fecha_baja,comentarios) values ('001','2021-01-18','001','9ZC46QQ10ZZ','4000-01-01','');
+insert into amoperez.polizas (id_vehiculo,fecha_alta,id_aseguradora,numero_poliza,fecha_baja,comentarios) values ('002','2020-12-20','002','ZESHIJJ68507ZYW','4000-01-01','');
+insert into amoperez.polizas (id_vehiculo,fecha_alta,id_aseguradora,numero_poliza,fecha_baja,comentarios) values ('003','2020-12-20','002','YITLFRW49579CPB','4000-01-01','');
+insert into amoperez.polizas (id_vehiculo,fecha_alta,id_aseguradora,numero_poliza,fecha_baja,comentarios) values ('004','2020-12-20','002','EJSRCPR15236DXU','4000-01-01','');
+insert into amoperez.polizas (id_vehiculo,fecha_alta,id_aseguradora,numero_poliza,fecha_baja,comentarios) values ('005','2020-12-20','002','LHZMRUN38530HDQ','4000-01-01','');
+insert into amoperez.polizas (id_vehiculo,fecha_alta,id_aseguradora,numero_poliza,fecha_baja,comentarios) values ('006','2020-12-20','001','6ZC52LI850N','4000-01-01','');
+insert into amoperez.polizas (id_vehiculo,fecha_alta,id_aseguradora,numero_poliza,fecha_baja,comentarios) values ('007','2022-08-01','001','5IF39XU911E','2022-08-15','');
+insert into amoperez.polizas (id_vehiculo,fecha_alta,id_aseguradora,numero_poliza,fecha_baja,comentarios) values ('007','2022-08-15','001','4PI48XZ513A','4000-01-01','');
+insert into amoperez.polizas (id_vehiculo,fecha_alta,id_aseguradora,numero_poliza,fecha_baja,comentarios) values ('008','2022-08-01','003','79EE224712JH177VBT','4000-01-01','');
+insert into amoperez.polizas (id_vehiculo,fecha_alta,id_aseguradora,numero_poliza,fecha_baja,comentarios) values ('009','2022-08-01','003','65EE203827MO432VBT','4000-01-01','');
+insert into amoperez.polizas (id_vehiculo,fecha_alta,id_aseguradora,numero_poliza,fecha_baja,comentarios) values ('010','2022-08-01','003','44EE581843AT690VBT','4000-01-01','');
+
